@@ -220,7 +220,7 @@ public class CRFMain {
 				for(int p=0;p<bArray.length;p++)
 				{
 					//Need to implement another free Tag
-					temp = new Template(passage.substring(i-1, i+4), bArray[p], preTag, 2, preTags[i-1]);
+					temp = new Template(passage.substring(i-1, i+4), bArray[p], preTag, 2, tags[i-1]);
 					int index = getHashMapsIndex(preTag);
 					if(hashMaps[index].containsKey(temp))
 					{
@@ -232,7 +232,7 @@ public class CRFMain {
 						hashMaps[index].put(temp,-1);
 					}
 					
-					temp = new Template(passage.substring(i-1, i+4), bArray[p], preTag, 2, preTags[i-1]);
+					temp = new Template(passage.substring(i-1, i+4), bArray[p], tag, 2, tags[i-1]);
 					index = getHashMapsIndex(tag);
 					if(hashMaps[index].containsKey(temp))
 					{
