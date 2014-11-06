@@ -12,7 +12,7 @@ public class CRFReader {
 	private String[]templateUArray;
 	private String[]templateBArray;
 	CRFReader(String charPath,String labelPath,String templatePath){
-		String tags="P",chars="NN";
+		String tags="PP",chars="NN";
 		File set = new File(charPath);
 		Scanner fileInput = null;
 		try {
@@ -29,7 +29,7 @@ public class CRFReader {
 		//this.charArray = chars.toCharArray();
 		this.passage = (chars+"NN");
 		System.out.println("P: "+this.passage.length());
-		this.tagArray = (tags+'P').toCharArray();
+		this.tagArray = (tags+"PP").toCharArray();
 		System.out.println("T: "+this.tagArray.length);
 		
 		set = new File(labelPath);
@@ -79,11 +79,11 @@ public class CRFReader {
 		
 		this.templateUArray = templateU.split("\\|");
 		this.templateBArray = templateB.split("\\|");
-		for(String template:this.templateUArray)
-		{
-			System.out.println(template);
-		}
-		
+//		for(String template:this.templateUArray)
+//		{
+//			System.out.println(template);
+//		}
+//		
 		/*
 		for(String template:this.templateUArray)
 		{
