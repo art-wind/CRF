@@ -1,16 +1,12 @@
 package crf;
 //implements Comparable 
 public class Template {
-//	private char before_2;
-//	private char before_1;
-//	private char beforeTag;
-//	private char currentTag;
-//	private char after_1;
-//	private char after_2;
 	private String rule;
 	private String core="";
 	private String content="";
 	private int type;//State whether it is unigram
+	
+	//Given the window and patterns to generate the unique key for each 
 	Template(String window,String pattern,int type,char preTag)
 	{
 //		before_2 = window.charAt(0);
@@ -54,26 +50,34 @@ public class Template {
 	{
 		return rule;
 	}
-//	String generalize(String pattern){
-//		String ret = pattern;
-//		int begin = ret.indexOf("%x");
-//		ret = ret.substring(begin+2);
-//		ret = ret.replace(",0]","");
-//		ret = ret.replace("[","");
-//		ret = ret.replace("%x","");
-//		//System.out.println("Ret:  "+ret);
-//		return ret;
-//	}
-
-	public boolean equals(Object o)
-	{
-		Template template = (Template)o;
-		return (type==template.getType()) && core.equals(template.getCore()) && rule.equals(template.getRule());
+	public int getType() {
+		return type;
 	}
-	public int hashCode()
-	{
-		return (rule+core).hashCode();
+	public void setType(int type) {
+		this.type = type;
 	}
+	public void setRule(String rule) {
+		this.rule = rule;
+	}
+	public String getCore() {
+		return core;
+	}
+	public void setCore(String core) {
+		this.core = core;
+	}
+	public String getContent()
+	{
+		return this.content;
+	}
+	//The declarations below are hidden for future uses
+	
+	
+//	private char before_2;
+//	private char before_1;
+//	private char beforeTag;
+//	private char currentTag;
+//	private char after_1;
+//	private char after_2;
 //	public char getBefore_2() {
 //		return before_2;
 //	}
@@ -110,23 +114,5 @@ public class Template {
 //	public void setAfter_2(char after_2) {
 //		this.after_2 = after_2;
 ////	}
-	public int getType() {
-		return type;
-	}
-	public void setType(int type) {
-		this.type = type;
-	}
-	public void setRule(String rule) {
-		this.rule = rule;
-	}
-	public String getCore() {
-		return core;
-	}
-	public void setCore(String core) {
-		this.core = core;
-	}
-	public String getContent()
-	{
-		return this.content;
-	}
+	
 }

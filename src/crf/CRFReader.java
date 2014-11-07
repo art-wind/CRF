@@ -18,8 +18,8 @@ public class CRFReader {
 		try {
 			fileInput = new Scanner(set);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.print("Invalid path for passagePath!");
+			System.exit(0);
 		}
 		while(fileInput.hasNext())
 		{
@@ -36,8 +36,8 @@ public class CRFReader {
 		try {
 			fileInput = new Scanner(set);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.print("Invalid path for labelPath!");
+			System.exit(0);
 		}
 		String labels = "";
 		while(fileInput.hasNext())
@@ -50,8 +50,8 @@ public class CRFReader {
 		try {
 			fileInput = new Scanner(set);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.print("Invalid path for templatePath!");
+			System.exit(0);
 		}
 
 		String templateU = "";
@@ -74,26 +74,9 @@ public class CRFReader {
 				}
 			}
 			
-		}
-		//System.out.println(templateU);
-		
+		}		
 		this.templateUArray = templateU.split("\\|");
 		this.templateBArray = templateB.split("\\|");
-//		for(String template:this.templateUArray)
-//		{
-//			System.out.println(template);
-//		}
-//		
-		/*
-		for(String template:this.templateUArray)
-		{
-			template = generalize(template);
-		}
-		
-		for(String template:this.templateUArray)
-		{
-			template = generalize(template);
-		}*/
 	}
 	String generalize(String pattern){
 		String ret = pattern;
@@ -102,7 +85,6 @@ public class CRFReader {
 		ret = ret.replace(",0]","");
 		ret = ret.replace("[","");
 		ret = ret.replace("%x","");
-		//System.out.println("Ret:  "+ret);
 		return ret;
 	}
 	
@@ -145,6 +127,10 @@ public class CRFReader {
 	}
 	public String getTemplateBArray(int index) {
 		return templateBArray[index];
+	}
+	public int getLabelLength() {
+		// TODO Auto-generated method stub
+		return this.labelArray.length;
 	}
 
 }
