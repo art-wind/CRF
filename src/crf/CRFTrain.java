@@ -2,9 +2,9 @@ package crf;
 
 import java.util.HashMap;
 
-public class CRFTraining {
+public class CRFTrain {
 	int labelSize=0;
-	CRFTraining(int ls){
+	CRFTrain(int ls){
 		this.labelSize = ls;
 	}
 	//Interface for outer links

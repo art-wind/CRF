@@ -11,19 +11,14 @@ public class CRFMain {
 		//to an array representing the scores of 'S,B,I,E'
 		HashMap<String,int[]>hashMap =new HashMap<String,int[]>();
 		labelSize = crfReader.getLabelLength();
-		CRFTraining crfTrain = new CRFTraining(labelSize);
+		CRFTrain crfTrain = new CRFTrain(labelSize);
 		//Initialize the hashMap from the given reader
 		crfTrain.init(crfReader,hashMap);
 		//Specify the percentage to stop
-//		for(int i=0;i<8;i++){
-//			double st = 0.999;
-//			st+=(double)i/1000;
-//			
-//		}
 		
 		
 		//Read in the test set to predict the desired char Array
-		crfTrain.learn(crfReader, hashMap,0.9996);
+		crfTrain.learn(crfReader, hashMap,0.9995);
 		crfReader = new CRFReader("data/test.utf8","data/labels.utf8","data/template.utf8");
 		crfTrain.test(crfReader, hashMap);
 	}
